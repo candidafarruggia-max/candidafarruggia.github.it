@@ -7,7 +7,10 @@ const translations = {
     gallery_intro: 'Progetti universitari selezionati — branding, editoriale, UX/UI e visual design.',
     label_subject: 'Materia',
     project_jekyll: 'Dottor Jekyll e il Signor Hyde',
-    footer_cta: 'Creiamo insieme'
+    footer_cta: 'Creiamo insieme',
+    about_label: 'Chi sono',
+    about_title: 'Creo identità visive, layout digitali e progetti con carattere.',
+    more_about: 'Leggi di più'
   },
   en: {
     nav_gallery: 'Gallery',
@@ -17,7 +20,10 @@ const translations = {
     gallery_intro: 'Selected university projects — branding, editorial, UX/UI and visual design.',
     label_subject: 'Subject',
     project_jekyll: 'Doctor Jekyll and Mister Hyde',
-    footer_cta: "Let's create together"
+    footer_cta: "Let's create together",
+    about_label: 'About me',
+    about_title: 'I create visual identities, digital layouts and projects with character.',
+    more_about: 'More about me'
   },
   sp: {
     nav_gallery: 'Galería',
@@ -27,7 +33,10 @@ const translations = {
     gallery_intro: 'Proyectos universitarios seleccionados — branding, editorial, UX/UI y diseño visual.',
     label_subject: 'Materia',
     project_jekyll: 'Doctor Jekyll y Mister Hyde',
-    footer_cta: 'Creamos juntos'
+    footer_cta: 'Creamos juntos',
+    about_label: 'Sobre mí',
+    about_title: 'Creo identidades visuales, layouts digitales y proyectos con carácter.',
+    more_about: 'Más sobre mí'
   }
 };
 
