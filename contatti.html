@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contatti — Ca.Farru</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body { background: var(--black); min-height: 100vh }
+
+    /* X BUTTON */
+    .close-btn {
+      position: fixed; top: 24px; right: 24px; z-index: 100;
+      width: 64px; height: 64px; border-radius: 50%;
+      border: 2px solid rgba(255,255,255,.3);
+      background: rgba(255,255,255,.06);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: border-color .3s, background .3s;
+      backdrop-filter: blur(8px);
+    }
+    .close-btn:hover { border-color: var(--lime); background: rgba(198,241,96,.1) }
+    .close-btn svg {
+      width: 24px; height: 24px; stroke: var(--white); stroke-width: 2;
+      transition: transform .5s cubic-bezier(.34,1.56,.64,1);
+    }
+    .close-btn:hover svg { transform: rotate(180deg); stroke: var(--lime) }
+
+    /* PAGE LAYOUT */
+    .contact-page {
+      min-height: 100vh;
+      padding: 8rem 6vw 6rem;
+      display: flex; flex-direction: column; gap: 4rem;
+    }
+    .contact-header { max-width: 800px }
+    .contact-header .eyebrow { color: var(--lime); margin: 0 0 1rem }
+    .contact-header h1 {
+      font-family: Anton, Impact, sans-serif;
+      font-size: clamp(2.5rem, 6vw, 7rem);
+      line-height: .9; margin: 0; text-transform: uppercase;
+    }
+
+    /* CARDS */
+    .contact-cards {
+      display: grid; grid-template-columns: 1.4fr 1fr; gap: 2rem; align-items: start;
+    }
+    .contact-card {
+      background: #0e0e0e; border: 1.5px solid #1e1e1e;
+      border-radius: 28px; padding: 3rem;
+    }
+    .contact-card h2 {
+      font-family: Anton, Impact, sans-serif;
+      font-size: clamp(2rem, 4vw, 4.5rem);
+      text-transform: uppercase; margin: 0 0 2.5rem; line-height: .9;
+      color: var(--white);
+    }
+
+    /* FORM */
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem }
+    .form-field { display: flex; flex-direction: column; gap: .5rem }
+    .form-field.full { grid-column: 1 / -1 }
+    .form-field label {
+      font-size: .78rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: .1em; color: var(--grey);
+    }
+    .form-field input,
+    .form-field textarea {
+      background: #181818; border: 1.5px solid #2a2a2a;
+      border-radius: 12px; padding: 14px 18px;
+      color: var(--white); font-family: inherit; font-size: 1rem;
+      outline: none; transition: border-color .2s, box-shadow .2s;
+      resize: none;
+    }
+    .form-field input:focus,
+    .form-field textarea:focus {
+      border-color: var(--lime);
+      box-shadow: 0 0 0 3px rgba(198,241,96,.1);
+    }
+    .form-field textarea { min-height: 140px }
+    .submit-btn {
+      margin-top: 1.5rem; display: inline-flex; align-items: center; gap: 12px;
+      background: var(--lime); color: var(--black);
+      border: none; border-radius: 999px; padding: 18px 36px;
+      font-family: inherit; font-weight: 900; font-size: 1rem;
+      text-transform: uppercase; letter-spacing: .08em;
+      cursor: pointer; transition: .2s; width: fit-content;
+    }
+    .submit-btn:hover { background: var(--white); transform: translateY(-2px) }
+    .submit-btn svg { width: 18px; height: 18px; stroke: var(--black); stroke-width: 2.5 }
+
+    /* SOCIAL CARD */
+    .social-list { display: flex; flex-direction: column; gap: 0 }
+    .social-link {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.6rem 0; border-bottom: 1.5px solid #1e1e1e;
+      font-family: Anton, Impact, sans-serif;
+      font-size: clamp(2rem, 3.5vw, 4rem);
+      text-transform: uppercase; color: var(--white);
+      transition: .2s; cursor: pointer;
+    }
+    .social-link:first-child { border-top: 1.5px solid #1e1e1e }
+    .social-link:hover { color: var(--lime); padding-left: 12px }
+    .social-link svg {
+      width: 28px; height: 28px; stroke: currentColor;
+      stroke-width: 2; opacity: .5; transition: .2s; flex-shrink: 0;
+    }
+    .social-link:hover svg { opacity: 1; transform: translate(4px,-4px) }
+
+    .contact-email {
+      margin-top: 2.5rem; padding-top: 2rem; border-top: 1.5px solid #1e1e1e;
+    }
+    .contact-email p { color: var(--grey); font-size: .85rem; text-transform: uppercase; letter-spacing: .1em; margin: 0 0 .5rem }
+    .contact-email a {
+      color: var(--white); font-weight: 800; font-size: 1rem;
+      transition: .2s;
+    }
+    .contact-email a:hover { color: var(--lime) }
+
+    /* SUCCESS MESSAGE */
+    .success-msg {
+      display: none; background: rgba(198,241,96,.1);
+      border: 1.5px solid var(--lime); border-radius: 12px;
+      padding: 16px 20px; margin-top: 1rem;
+      color: var(--lime); font-weight: 800; font-size: .95rem;
+    }
+
+    @media (max-width: 900px) {
+      .contact-cards { grid-template-columns: 1fr }
+      .form-grid { grid-template-columns: 1fr }
+      .form-field.full { grid-column: 1 }
+      .close-btn { top: 16px; right: 16px; width: 52px; height: 52px }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- X CLOSE BUTTON -->
+  <a class="close-btn" href="index.html" aria-label="Torna alla home">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="18" y1="6" x2="6" y2="18"/>
+      <line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </a>
+
+  <main class="contact-page">
+
+    <div class="contact-header">
+      <p class="eyebrow" data-i18n="contact_eyebrow">Parliamo</p>
+      <h1 data-i18n="contact_title">Benvenuto!<br>È un piacere<br>conoscerti.</h1>
+    </div>
+
+    <div class="contact-cards">
+
+      <!-- FORM CARD -->
+      <div class="contact-card">
+        <h2 data-i18n="contact_form_title">Scrivimi</h2>
+        <div class="form-grid" id="contactForm">
+          <div class="form-field">
+            <label data-i18n="form_name">Nome</label>
+            <input type="text" id="nome" placeholder="Candy" />
+          </div>
+          <div class="form-field">
+            <label data-i18n="form_surname">Cognome</label>
+            <input type="text" id="cognome" placeholder="Farruggia" />
+          </div>
+          <div class="form-field">
+            <label data-i18n="form_phone">Telefono</label>
+            <input type="tel" id="telefono" placeholder="+39 000 000 0000" />
+          </div>
+          <div class="form-field">
+            <label data-i18n="form_email">Email</label>
+            <input type="email" id="email" placeholder="hello@esempio.com" />
+          </div>
+          <div class="form-field full">
+            <label data-i18n="form_message">Messaggio</label>
+            <textarea id="messaggio" placeholder="Raccontami del tuo progetto…"></textarea>
+          </div>
+        </div>
+        <button class="submit-btn" onclick="handleSubmit()" type="button">
+          <span data-i18n="form_send">Invia</span>
+          <svg viewBox="0 0 24 24" fill="none"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+        <div class="success-msg" id="successMsg" data-i18n="form_success">
+          ✓ Messaggio inviato! Ti rispondo presto.
+        </div>
+      </div>
+
+      <!-- SOCIAL CARD -->
+      <div class="contact-card">
+        <h2 data-i18n="contact_social_title">Social</h2>
+        <div class="social-list">
+          <a class="social-link" href="#" target="_blank" rel="noopener">
+            Instagram
+            <svg viewBox="0 0 24 24" fill="none"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+          <a class="social-link" href="#" target="_blank" rel="noopener">
+            Behance
+            <svg viewBox="0 0 24 24" fill="none"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+          <a class="social-link" href="#" target="_blank" rel="noopener">
+            LinkedIn
+            <svg viewBox="0 0 24 24" fill="none"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+        </div>
+
+        <div class="contact-email">
+          <p data-i18n="contact_or">Oppure scrivimi via email</p>
+          <a href="mailto:160499.candy.farruggia@gmail.com">160499.candy.farruggia@gmail.com</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    function handleSubmit() {
+      const nome = document.getElementById('nome').value.trim();
+      const email = document.getElementById('email').value.trim();
+      if (!nome || !email) {
+        alert('Per favore compila almeno nome ed email.');
+        return;
+      }
+      const msg = document.getElementById('successMsg');
+      msg.style.display = 'block';
+      document.getElementById('contactForm').style.opacity = '.4';
+      document.getElementById('contactForm').style.pointerEvents = 'none';
+      document.querySelector('.submit-btn').style.display = 'none';
+    }
+
+    // Traduzioni pagina contatti
+    const contactT = {
+      it: {
+        contact_eyebrow: 'Parliamo',
+        contact_title: 'Benvenuto!\nÈ un piacere\nconoscerti.',
+        contact_form_title: 'Scrivimi',
+        form_name: 'Nome', form_surname: 'Cognome',
+        form_phone: 'Telefono', form_email: 'Email',
+        form_message: 'Messaggio', form_send: 'Invia',
+        form_success: '✓ Messaggio inviato! Ti rispondo presto.',
+        contact_social_title: 'Social',
+        contact_or: 'Oppure scrivimi via email'
+      },
+      en: {
+        contact_eyebrow: "Let's talk",
+        contact_title: "Welcome!\nNice to\nmeet you.",
+        contact_form_title: 'Write to me',
+        form_name: 'Name', form_surname: 'Surname',
+        form_phone: 'Phone', form_email: 'Email',
+        form_message: 'Message', form_send: 'Send',
+        form_success: '✓ Message sent! I will reply soon.',
+        contact_social_title: 'Social',
+        contact_or: 'Or write me via email'
+      },
+      sp: {
+        contact_eyebrow: 'Hablemos',
+        contact_title: '¡Bienvenido!\nEs un placer\nconocerte.',
+        contact_form_title: 'Escríbeme',
+        form_name: 'Nombre', form_surname: 'Apellido',
+        form_phone: 'Teléfono', form_email: 'Email',
+        form_message: 'Mensaje', form_send: 'Enviar',
+        form_success: '✓ ¡Mensaje enviado! Te respondo pronto.',
+        contact_social_title: 'Social',
+        contact_or: 'O escríbeme por email'
+      }
+    };
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const dict = contactT[lang] || contactT.it;
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.dataset.i18n;
+          if (dict[key]) el.textContent = dict[key];
+        });
+      });
+    });
+  </script>
+</body>
+</html>
