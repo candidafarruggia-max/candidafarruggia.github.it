@@ -1,21 +1,23 @@
 const translations = {
   it: {
     nav_gallery: 'Galleria',
-    nav_about: 'About me',
+    nav_about: 'Chi sono',
     nav_contact: 'Contatti',
     gallery_title: 'Galleria',
     gallery_intro: 'Progetti universitari selezionati — branding, editoriale, UX/UI e visual design.',
     label_subject: 'Materia',
-    project_jekyll: 'Dottor Jekyll e il Signor Hyde'
+    project_jekyll: 'Dottor Jekyll e il Signor Hyde',
+    footer_cta: 'Creiamo insieme'
   },
   en: {
     nav_gallery: 'Gallery',
     nav_about: 'About me',
-    nav_contact: 'Contact',
+    nav_contact: 'Contacts',
     gallery_title: 'Gallery',
     gallery_intro: 'Selected university projects — branding, editorial, UX/UI and visual design.',
     label_subject: 'Subject',
-    project_jekyll: 'Doctor Jekyll and Mister Hyde'
+    project_jekyll: 'Doctor Jekyll and Mister Hyde',
+    footer_cta: "Let's create together"
   },
   sp: {
     nav_gallery: 'Galería',
@@ -24,7 +26,8 @@ const translations = {
     gallery_title: 'Galería',
     gallery_intro: 'Proyectos universitarios seleccionados — branding, editorial, UX/UI y diseño visual.',
     label_subject: 'Materia',
-    project_jekyll: 'Doctor Jekyll y Mister Hyde'
+    project_jekyll: 'Doctor Jekyll y Mister Hyde',
+    footer_cta: 'Creamos juntos'
   }
 };
 
@@ -32,17 +35,18 @@ const gridView = document.getElementById('gridView');
 const listView = document.getElementById('listView');
 const buttons = document.querySelectorAll('.view-btn');
 
-buttons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    buttons.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const mode = btn.dataset.view;
-    gridView.classList.toggle('active-view', mode === 'grid');
-    listView.classList.toggle('active-view', mode === 'list');
+if (buttons.length) {
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const mode = btn.dataset.view;
+      if (gridView) gridView.classList.toggle('active-view', mode === 'grid');
+      if (listView) listView.classList.toggle('active-view', mode === 'list');
+    });
   });
-});
+}
 
-// Card selezionabile: primo click seleziona, secondo click apre il progetto.
 document.querySelectorAll('.project-card').forEach(card => {
   card.addEventListener('click', event => {
     if (!card.classList.contains('selected')) {
@@ -53,8 +57,6 @@ document.querySelectorAll('.project-card').forEach(card => {
   });
 });
 
-
-// Lista selezionabile: primo click seleziona, secondo click apre il progetto.
 document.querySelectorAll('.list-group a').forEach(item => {
   item.addEventListener('click', event => {
     if (!item.classList.contains('selected')) {
