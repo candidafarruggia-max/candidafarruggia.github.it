@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ca.Farru — Galleria</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="mini-logo" href="index.html">CF</a>
+    <nav class="pill-nav" aria-label="Navigazione principale">
+      <a class="nav-link active" href="galleria.html" data-i18n="nav_gallery">Galleria</a>
+      <a class="nav-link" href="about.html" data-i18n="nav_about">About me</a>
+      <a class="nav-link" href="contatti.html" data-i18n="nav_contact">Contatti</a>
+    </nav>
+    <div class="lang-nav" aria-label="Seleziona lingua">
+      <button class="lang-btn active" type="button" data-lang="it">IT</button>
+      <button class="lang-btn" type="button" data-lang="en">EN</button>
+      <button class="lang-btn" type="button" data-lang="sp">SP</button>
+    </div>
+  </header>
+
+  <main class="gallery-page">
+    <section class="gallery-hero">
+      <h1 data-i18n="gallery_title">Galleria</h1>
+      <p data-i18n="gallery_intro">Progetti universitari selezionati — branding, editoriale, UX/UI e visual design.</p>
+    </section>
+
+    <section id="gridView" class="projects-grid view active-view" aria-label="Progetti in griglia">
+      <a class="project-card" href="progetto-dottor-jekyll.html" data-type="editorial" data-software="InDesign Photoshop Illustrator">
+        <div class="project-image img-1">01</div>
+        <div class="project-info">
+          <h2 data-i18n="project_jekyll">Dottor Jekyll e il Signor Hyde</h2>
+          <p><span data-i18n="label_subject">Materia</span>: Editorial design</p>
+          <span>InDesign · Photoshop · Illustrator</span>
+        </div>
+      </a>
+
+      <a class="project-card" href="progetto-we-great.html" data-type="branding" data-software="Figma Illustrator Photoshop">
+        <div class="project-image img-2">02</div>
+        <div class="project-info">
+          <h2>We Great</h2>
+          <p><span data-i18n="label_subject">Materia</span>: Branding / UX UI</p>
+          <span>Figma · Illustrator · Photoshop</span>
+        </div>
+      </a>
+
+      <a class="project-card" href="progetto-indegno.html" data-type="graphic" data-software="Illustrator Photoshop InDesign">
+        <div class="project-image img-3">03</div>
+        <div class="project-info">
+          <h2>Indegno</h2>
+          <p><span data-i18n="label_subject">Materia</span>: Graphic design / Concept</p>
+          <span>Illustrator · Photoshop · InDesign</span>
+        </div>
+      </a>
+    </section>
+
+    <section id="listView" class="projects-list view" aria-label="Progetti in lista">
+      <div class="list-group">
+        <h2>Editorial design</h2>
+        <a href="progetto-dottor-jekyll.html"><span data-i18n="project_jekyll">Dottor Jekyll e il Signor Hyde</span><small>InDesign · Photoshop · Illustrator</small></a>
+      </div>
+      <div class="list-group">
+        <h2>Branding / UX UI</h2>
+        <a href="progetto-we-great.html"><span>We Great</span><small>Figma · Illustrator · Photoshop</small></a>
+      </div>
+      <div class="list-group">
+        <h2>Graphic design / Concept</h2>
+        <a href="progetto-indegno.html"><span>Indegno</span><small>Illustrator · Photoshop · InDesign</small></a>
+      </div>
+    </section>
+  </main>
+
+  <div class="bottom-controls" aria-label="Cambia vista">
+    <button class="view-btn active" type="button" data-view="grid" aria-label="Vista griglia">▦</button>
+    <button class="view-btn" type="button" data-view="list" aria-label="Vista lista">☷</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
