@@ -3,32 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Monster Energy — Ca.Farru</title>
+  <title>Ca.Farru — Galleria</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    .project-page { padding: 8rem 6vw 6rem }
-    .project-hero { display: grid; grid-template-columns: 1fr 1.6fr; gap: 6vw; align-items: start; border-bottom: 1px solid #222; padding-bottom: 4rem; margin-bottom: 4rem }
-    .project-meta-left { display: flex; flex-direction: column; gap: 2rem }
-    .meta-block p { color: var(--grey); font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; margin: 0 0 .4rem }
-    .meta-block h3 { font-family: Anton, Impact, sans-serif; font-size: clamp(1.2rem, 2vw, 2rem); text-transform: uppercase; margin: 0 }
-    .software-icons { display: flex; gap: 10px; flex-wrap: wrap }
-    .sw { width: 52px; height: 52px; border-radius: 50%; background: var(--white); color: var(--black); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: .8rem }
-    .project-title-right h1 { font-family: Anton, Impact, sans-serif; font-size: clamp(3rem, 8vw, 10rem); text-transform: uppercase; line-height: .85; margin: 0 0 1.5rem }
-    .brief-text { font-size: clamp(1rem, 1.5vw, 1.3rem); line-height: 1.6; color: var(--grey) }
-    .img-full { width: 100%; border-radius: 16px; display: block; margin-bottom: 2rem }
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem }
-    .two-col img { width: 100%; border-radius: 16px; display: block }
-    .section-label { font-size: .8rem; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; color: var(--lime); margin: 3rem 0 1rem }
-    @media(max-width:800px){ .project-hero,.two-col { grid-template-columns: 1fr } }
+    .list-category { border-top: 2px solid #222; padding: 2rem 0 0; margin-top: 2rem }
+    .list-category h2 { font-family: Anton, Impact, sans-serif; font-size: clamp(1.5rem, 3vw, 3rem); text-transform: uppercase; color: var(--lime); margin: 0 0 1rem }
+    .list-category a { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 0; border-bottom: 1px solid #1e1e1e; font-family: Anton, Impact, sans-serif; font-size: clamp(1.5rem, 3vw, 3.5rem); text-transform: uppercase; color: var(--white); transition: .2s }
+    .list-category a:hover { color: var(--lime); padding-left: 12px }
+    .list-category a small { font-family: Inter, Arial, sans-serif; font-size: .8rem; font-weight: 800; color: var(--grey); text-transform: uppercase; letter-spacing: .08em }
+    .list-category a:hover small { color: var(--lime) }
   </style>
 </head>
 <body>
   <header class="topbar">
     <a class="mini-logo" href="index.html">CF</a>
     <nav class="pill-nav">
-      <a class="nav-link active" href="galleria.html">Galleria</a>
-      <a class="nav-link" href="about.html">Chi sono</a>
-      <a class="nav-link" href="contatti.html">Contatti</a>
+      <a class="nav-link active" href="galleria.html" data-i18n="nav_gallery">Galleria</a>
+      <a class="nav-link" href="about.html" data-i18n="nav_about">Chi sono</a>
+      <a class="nav-link" href="contatti.html" data-i18n="nav_contact">Contatti</a>
     </nav>
     <div class="lang-nav">
       <button class="lang-btn active" type="button" data-lang="it">IT</button>
@@ -37,47 +29,145 @@
     </div>
   </header>
 
-  <main class="project-page">
-    <div class="project-hero">
-      <div class="project-meta-left">
-        <div class="meta-block">
-          <p>Categoria</p>
-          <h3>Web Design / Restyling</h3>
-        </div>
-        <div class="meta-block">
-          <p>Software</p>
-          <div class="software-icons">
-            <span class="sw">Fg</span>
-            <span class="sw">Ps</span>
-          </div>
-        </div>
-        <div class="meta-block">
-          <p>Committente</p>
-          <h3>Università — IAAD</h3>
-        </div>
-      </div>
-      <div class="project-title-right">
-        <h1>Monster Energy</h1>
-        <p class="brief-text">Restyling della homepage di Monster Energy basato sull'analisi dei dati forniti. Il punto critico era l'assenza di un sistema e-commerce: il sito originale non permetteva l'acquisto diretto. La soluzione è stata trasformare il sito in una piattaforma e-commerce, ridisegnando la Hero con una tipografia bold e d'impatto per aumentare le conversioni e valorizzare il prodotto fin dal primo scroll.</p>
-      </div>
-    </div>
+  <main class="gallery-page">
+    <section class="gallery-hero">
+      <h1 data-i18n="gallery_title">Galleria</h1>
+      <p data-i18n="gallery_intro">Progetti universitari selezionati — branding, editoriale, UX/UI e visual design.</p>
+    </section>
 
-    <p class="section-label">Homepage originale</p>
-    <div class="two-col">
-      <img src="assets/homepage vecchia.jpg" alt="Monster homepage originale desktop" />
-      <img src="assets/home page vecchia.png" alt="Monster homepage originale mockup" />
-    </div>
+    <!-- GRID VIEW -->
+    <section id="gridView" class="projects-grid view active-view">
+      <a class="project-card" href="progetto-dottor-jekyll.html">
+        <div class="project-image" style="background:#111;overflow:hidden">
+          <img src="assets/poster S.jpg" alt="Jekyll" style="width:100%;height:100%;object-fit:cover" />
+        </div>
+        <div class="project-info">
+          <h2>Dottor Jekyll e il Signor Hyde</h2>
+          <p>Editorial / Visual Design</p>
+          <span>Photoshop · Illustrator · InDesign</span>
+        </div>
+      </a>
+      <a class="project-card" href="progetto-play2match.html">
+        <div class="project-image" style="background:#ff4500;overflow:hidden">
+          <img src="assets/play2match.png" alt="Play2Match" style="width:100%;height:100%;object-fit:cover" />
+        </div>
+        <div class="project-info">
+          <h2>Play n'Match</h2>
+          <p>UX/UI Design</p>
+          <span>Figma · Illustrator</span>
+        </div>
+      </a>
+      <a class="project-card" href="progetto-dog-balloon.html">
+        <div class="project-image" style="background:#1a1a2e;overflow:hidden">
+          <img src="assets/balloon dog.png" alt="Dog Balloon" style="width:100%;height:100%;object-fit:cover" />
+        </div>
+        <div class="project-info">
+          <h2>Dog Balloon</h2>
+          <p>3D / Prompt</p>
+          <span>Blender · ChatGPT</span>
+        </div>
+      </a>
+      <a class="project-card" href="progetto-chivas.html">
+        <div class="project-image" style="background:#8b0000;overflow:hidden">
+          <img src="assets/chivas nuova.jpg" alt="Chivas" style="width:100%;height:100%;object-fit:cover" />
+        </div>
+        <div class="project-info">
+          <h2>Chivas Regal 12</h2>
+          <p>Poster / Advertising</p>
+          <span>Photoshop · Illustrator</span>
+        </div>
+      </a>
+      <a class="project-card" href="progetto-john-lennon.html">
+        <div class="project-image" style="background:#1a1a3e;overflow:hidden">
+          <img src="assets/vinile nuovo 1.png" alt="John Lennon" style="width:100%;height:100%;object-fit:cover" />
+        </div>
+        <div class="project-info">
+          <h2>John Lennon</h2>
+          <p>Vinile / Editorial</p>
+          <span>Illustrator · Photoshop</span>
+        </div>
+      </a>
+      <a class="project-card" href="progetto-porsche.html">
+        <div class="project-image" style="background:#f0f0f0;overflow:hidden">
+          <img src="assets/infografica porsche 911.jpg" alt="Porsche" style="width:100%;height:100%;object-fit:cover" />
+        </div>
+        <div class="project-info">
+          <h2>Porsche 911</h2>
+          <p>Infografica</p>
+          <span>Illustrator · Photoshop</span>
+        </div>
+      </a>
+      <a class="project-card" href="progetto-cinema.html">
+        <div class="project-image" style="background:#000;overflow:hidden">
+          <img src="assets/cinema 1.jpg" alt="53a Mostra" style="width:100%;height:100%;object-fit:cover" />
+        </div>
+        <div class="project-info">
+          <h2>53a Mostra Internazionale</h2>
+          <p>Poster</p>
+          <span>Illustrator · Photoshop</span>
+        </div>
+      </a>
+      <a class="project-card" href="progetto-monster.html">
+        <div class="project-image" style="background:#000;overflow:hidden">
+          <img src="assets/home page nuova.png" alt="Monster Energy" style="width:100%;height:100%;object-fit:cover" />
+        </div>
+        <div class="project-info">
+          <h2>Monster Energy</h2>
+          <p>Web Design / Restyling</p>
+          <span>Figma · Photoshop</span>
+        </div>
+      </a>
+      <a class="project-card" href="progetto-pop-smoke.html">
+        <div class="project-image" style="background:#3333cc;overflow:hidden">
+          <img src="assets/infografica pop smoke.jpg" alt="Pop Smoke" style="width:100%;height:100%;object-fit:cover" />
+        </div>
+        <div class="project-info">
+          <h2>Pop Smoke</h2>
+          <p>Infografica</p>
+          <span>Illustrator · Photoshop</span>
+        </div>
+      </a>
+    </section>
 
-    <p class="section-label">Restyling — nuova homepage e-commerce</p>
-    <div class="two-col">
-      <img src="assets/hompage nuova.jpg" alt="Monster nuova homepage desktop" />
-      <img src="assets/home page nuova.png" alt="Monster nuova homepage mockup" />
-    </div>
+    <!-- LIST VIEW -->
+    <section id="listView" class="projects-list view" style="padding-bottom:100px">
+      <div class="list-category">
+        <h2>Editorial / Visual Design</h2>
+        <a href="progetto-dottor-jekyll.html">Dottor Jekyll e il Signor Hyde<small>Photoshop · Illustrator · InDesign</small></a>
+        <a href="progetto-john-lennon.html">John Lennon — Walls and Bridges<small>Illustrator · Photoshop</small></a>
+      </div>
+      <div class="list-category">
+        <h2>UX/UI Design</h2>
+        <a href="progetto-play2match.html">Play n'Match<small>Figma · Illustrator</small></a>
+        <a href="progetto-monster.html">Monster Energy<small>Figma · Photoshop</small></a>
+      </div>
+      <div class="list-category">
+        <h2>Poster / Advertising</h2>
+        <a href="progetto-chivas.html">Chivas Regal 12<small>Photoshop · Illustrator</small></a>
+        <a href="progetto-cinema.html">53a Mostra Internazionale del Nuovo Cinema<small>Illustrator · Photoshop</small></a>
+      </div>
+      <div class="list-category">
+        <h2>Infografica</h2>
+        <a href="progetto-porsche.html">Porsche 911<small>Illustrator · Photoshop</small></a>
+        <a href="progetto-pop-smoke.html">Pop Smoke<small>Illustrator · Photoshop</small></a>
+      </div>
+      <div class="list-category">
+        <h2>3D / Prompt</h2>
+        <a href="progetto-dog-balloon.html">Dog Balloon<small>Blender · ChatGPT</small></a>
+      </div>
+    </section>
   </main>
 
-  <footer class="footer section-black">
+  <div class="bottom-controls">
+    <button class="view-btn active" type="button" data-view="grid">▦</button>
+    <button class="view-btn" type="button" data-view="list">☷</button>
+  </div>
+
+  <footer class="footer section-black" style="margin-top:80px">
     <a class="footer-cta" href="mailto:160499.candy.farruggia@gmail.com">
-      <span>Creiamo insieme</span><span aria-hidden="true">Creiamo insieme</span><span aria-hidden="true">Creiamo insieme</span>
+      <span data-i18n="footer_cta">Creiamo insieme</span>
+      <span aria-hidden="true">Creiamo insieme</span>
+      <span aria-hidden="true">Creiamo insieme</span>
     </a>
     <div class="footer-row">
       <a href="mailto:160499.candy.farruggia@gmail.com">email</a>
