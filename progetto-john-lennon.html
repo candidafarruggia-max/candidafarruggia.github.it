@@ -14,11 +14,13 @@
     .software-icons { display: flex; gap: 10px; flex-wrap: wrap }
     .sw { width: 52px; height: 52px; border-radius: 50%; background: var(--white); color: var(--black); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: .8rem }
     .project-title-right h1 { font-family: Anton, Impact, sans-serif; font-size: clamp(3rem, 8vw, 10rem); text-transform: uppercase; line-height: .85; margin: 0 0 1.5rem }
-    .project-title-right .brief-text { font-size: clamp(1rem, 1.5vw, 1.3rem); line-height: 1.6; color: var(--grey) }
-    .images-grid { display: grid; gap: 2rem }
-    .images-grid img { width: 100%; border-radius: 16px; display: block }
-    .two-col { grid-template-columns: 1fr 1fr }
-    .three-col { grid-template-columns: 1fr 1fr 1fr }
+    .brief-text { font-size: clamp(1rem, 1.5vw, 1.3rem); line-height: 1.6; color: var(--grey) }
+    .img-full { width: 100%; border-radius: 16px; display: block; margin-bottom: 2rem }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem }
+    .two-col img { width: 100%; border-radius: 16px; display: block }
+    .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; margin-bottom: 2rem }
+    .three-col img { width: 100%; border-radius: 16px; display: block }
+    .section-label { font-size: .8rem; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; color: var(--lime); margin: 3rem 0 1rem }
     @media(max-width:800px){ .project-hero,.two-col,.three-col { grid-template-columns: 1fr } }
   </style>
 </head>
@@ -26,9 +28,9 @@
   <header class="topbar">
     <a class="mini-logo" href="index.html">CF</a>
     <nav class="pill-nav">
-      <a class="nav-link active" href="galleria.html">Galleria</a>
-      <a class="nav-link" href="about.html">Chi sono</a>
-      <a class="nav-link" href="contatti.html">Contatti</a>
+      <a class="nav-link active" href="galleria.html" data-i18n="nav_gallery">Galleria</a>
+      <a class="nav-link" href="about.html" data-i18n="nav_about">Chi sono</a>
+      <a class="nav-link" href="contatti.html" data-i18n="nav_contact">Contatti</a>
     </nav>
     <div class="lang-nav">
       <button class="lang-btn active" type="button" data-lang="it">IT</button>
@@ -41,51 +43,83 @@
     <div class="project-hero">
       <div class="project-meta-left">
         <div class="meta-block">
-          <p>Categoria</p>
-          <h3>Vinile / Editorial</h3>
+          <p data-i18n="label_category">Categoria</p>
+          <h3 data-i18n="proj_category">Vinile / Editorial</h3>
         </div>
         <div class="meta-block">
-          <p>Software</p>
-          <div class="software-icons">
-            <span class="sw">Ai</span>
-            <span class="sw">Ps</span>
-          </div>
+          <p data-i18n="label_software">Software</p>
+          <div class="software-icons"><span class="sw">Ai</span><span class="sw">Ps</span></div>
         </div>
         <div class="meta-block">
-          <p>Committente</p>
-          <h3>Università — IAAD</h3>
+          <p data-i18n="label_client">Committente</p>
+          <h3 data-i18n="label_client_val">Università — IAAD</h3>
         </div>
       </div>
       <div class="project-title-right">
-        <h1>John Lennon</h1>
-        <p class="brief-text">Redesign della copertina di "Walls and Bridges" in occasione del 50° anniversario del disco. Il progetto include copertina e retro con tracklist, reinterpretando l'identità visiva dell'album in chiave contemporanea mantenendo il carattere emotivo dell'originale.</p>
+        <h1 data-i18n="proj_title">John Lennon</h1>
+        <p class="brief-text" data-i18n="proj_brief">Redesign della copertina di "Walls and Bridges" per il 50° anniversario. Il progetto include copertina e retro con tracklist, reinterpretando l'identità visiva dell'album in chiave contemporanea.</p>
       </div>
     </div>
-
-    <div class="images-grid">
-      <img src="assets/mockup vinile nuovo.png" alt="Mockup vinile John Lennon" style="border-radius:16px;width:100%" />
-      <div class="images-grid two-col" style="margin-top:2rem">
-        <img src="assets/vinile nuovo 1.png" alt="Copertina nuova" />
-        <img src="assets/vinile nuovo 1.2.png" alt="Retro nuovo" />
-      </div>
-      <div class="images-grid two-col" style="margin-top:2rem">
-        <img src="assets/vinile vecchio 2.jpg" alt="Copertina originale" />
-        <img src="assets/vinile vecchio.png.webp" alt="Booklet originale" />
-      </div>
-    </div>
+    <img src="assets/mockup vinile nuovo.png" alt="Mockup vinile" class="img-full" />
+    <div class="two-col"><img src="assets/vinile nuovo 1.png" alt="Copertina nuova" /><img src="assets/vinile nuovo 1.2.png" alt="Retro nuovo" /></div><div class="two-col"><img src="assets/vinile vecchio 2.jpg" alt="Copertina originale" /><img src="assets/vinile vecchio.png.webp" alt="Booklet originale" /></div>
   </main>
 
   <footer class="footer section-black">
     <a class="footer-cta" href="mailto:160499.candy.farruggia@gmail.com">
-      <span>Creiamo insieme</span><span aria-hidden="true">Creiamo insieme</span><span aria-hidden="true">Creiamo insieme</span>
+      <span data-i18n="footer_cta">Creiamo insieme</span>
+      <span aria-hidden="true">Creiamo insieme</span>
+      <span aria-hidden="true">Creiamo insieme</span>
     </a>
     <div class="footer-row">
       <a href="mailto:160499.candy.farruggia@gmail.com">email</a>
       <a href="#">instagram</a>
       <a href="#">behance</a>
-      <span>© Ca.Farru</span>
+      <a href="https://www.linkedin.com/in/candida-farruggia-71b1a9174/" target="_blank">LinkedIn</a>
     </div>
   </footer>
+
   <script src="script.js"></script>
+  <script>
+    const projT = {
+      it: {
+        nav_gallery:'Galleria', nav_about:'Chi sono', nav_contact:'Contatti',
+        label_category:'Categoria', label_software:'Software', label_client:'Committente',
+        label_client_val:'Università — IAAD', footer_cta:'Creiamo insieme',
+        proj_title:'John Lennon', proj_category:'Vinile / Editorial',
+        proj_brief:'Redesign della copertina di "Walls and Bridges" per il 50° anniversario. Il progetto include copertina e retro con tracklist, reinterpretando l'identità visiva dell'album in chiave contemporanea.'
+      },
+      en: {
+        nav_gallery:'Gallery', nav_about:'About me', nav_contact:'Contacts',
+        label_category:'Category', label_software:'Software', label_client:'Client',
+        label_client_val:'University — IAAD', footer_cta:"Let's create together",
+        proj_title:'John Lennon', proj_category:'Vinyl / Editorial',
+        proj_brief:'Redesign of the "Walls and Bridges" cover for its 50th anniversary. The project includes the front and back cover with tracklist, reinterpreting the album's visual identity in a contemporary key.'
+      },
+      sp: {
+        nav_gallery:'Galería', nav_about:'Sobre mí', nav_contact:'Contactos',
+        label_category:'Categoría', label_software:'Software', label_client:'Cliente',
+        label_client_val:'Universidad — IAAD', footer_cta:'Creamos juntos',
+        proj_title:'John Lennon', proj_category:'Vinilo / Editorial',
+        proj_brief:'Rediseño de la portada de "Walls and Bridges" para su 50° aniversario. El proyecto incluye portada y contraportada con tracklist, reinterpretando la identidad visual del álbum en clave contemporánea.'
+      }
+    };
+
+    function applyLang(lang) {
+      const dict = projT[lang] || projT.it;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (dict[key]) el.textContent = dict[key];
+      });
+      document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+      document.documentElement.lang = lang === 'sp' ? 'es' : lang;
+      localStorage.setItem('cafarru-lang', lang);
+    }
+
+    const savedLang = localStorage.getItem('cafarru-lang') || 'it';
+    applyLang(savedLang);
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+    });
+  </script>
 </body>
 </html>
