@@ -52,20 +52,24 @@
         <h2 data-i18n="projects_title">Progetti</h2>
       </div>
       <div class="project-grid">
-        <article class="project-card" onclick="window.location='progetto-dottor-jekyll.html'">
-          <div class="project-thumb">01</div>
+        <article class="project-card" onclick="window.location='progetto-dottor-jekyll.html'" style="cursor:pointer;overflow:hidden;position:relative">
+          <div class="project-thumb" style="background:#111;overflow:hidden;border:none;padding:0">
+            <img src="assets/poster S.jpg" alt="Jekyll" style="width:100%;height:100%;object-fit:cover" />
+          </div>
           <h3>Dottor Jekyll e il Signor Hyde</h3>
-          <p>Editorial / Visual design</p>
+          <p>Editorial / Visual Design</p>
         </article>
-        <article class="project-card" onclick="window.location='progetto-we-great.html'">
-          <div class="project-thumb">02</div>
-          <h3>We Great</h3>
-          <p>Branding / UX UI</p>
+        <article class="project-card" onclick="window.location='progetto-play2match.html'" style="cursor:pointer;overflow:hidden">
+          <div class="project-thumb" style="background:#ff4500;overflow:hidden;border:none;padding:0">
+            <img src="assets/play2match.png" alt="Play2Match" style="width:100%;height:100%;object-fit:cover" />
+          </div>
+          <h3>Play n'Match</h3>
+          <p>UX/UI Design</p>
         </article>
-        <article class="project-card" onclick="window.location='progetto-indegno.html'">
-          <div class="project-thumb">03</div>
-          <h3>Indegno</h3>
-          <p>Graphic design / Concept</p>
+        <article class="project-card" style="cursor:pointer">
+          <div class="project-thumb">WIP</div>
+          <h3>Monster</h3>
+          <p>Web Design / Restyling</p>
         </article>
       </div>
     </section>
@@ -87,7 +91,6 @@
 
   <script src="script.js"></script>
   <script>
-    // Applica lingua salvata all'avvio
     const savedLang = localStorage.getItem('cafarru-lang') || 'it';
     const translations = {
       it: {
@@ -119,9 +122,7 @@
         const key = el.dataset.i18n;
         if (dict[key]) el.innerHTML = dict[key];
       });
-      document.querySelectorAll('.lang-btn').forEach(b => {
-        b.classList.toggle('active', b.dataset.lang === lang);
-      });
+      document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
       document.documentElement.lang = lang === 'sp' ? 'es' : lang;
       localStorage.setItem('cafarru-lang', lang);
     }
