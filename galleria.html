@@ -6,7 +6,7 @@
   <title>Ca.Farru — Galleria</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    .list-category { border-top: 2px solid #222; padding: 2rem 0 0 }
+    .list-category { border-top: 2px solid #222; padding: 2rem 0 0; margin-top: 2rem }
     .list-category h2 { font-family: Anton, Impact, sans-serif; font-size: clamp(1.5rem, 3vw, 3rem); text-transform: uppercase; color: var(--lime); margin: 0 0 1rem }
     .list-category a { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 0; border-bottom: 1px solid #1e1e1e; font-family: Anton, Impact, sans-serif; font-size: clamp(1.5rem, 3vw, 3.5rem); text-transform: uppercase; color: var(--white); transition: .2s }
     .list-category a:hover { color: var(--lime); padding-left: 12px }
@@ -38,27 +38,23 @@
     <!-- GRID VIEW -->
     <section id="gridView" class="projects-grid view active-view">
       <a class="project-card" href="progetto-dottor-jekyll.html">
-        <div class="project-image img-1">01</div>
+        <div class="project-image" style="background:#111;overflow:hidden">
+          <img src="assets/poster S.jpg" alt="Jekyll" style="width:100%;height:100%;object-fit:cover" />
+        </div>
         <div class="project-info">
           <h2>Dottor Jekyll e il Signor Hyde</h2>
-          <p>Editorial design</p>
-          <span>InDesign · Photoshop · Illustrator</span>
+          <p>Editorial / Visual Design</p>
+          <span>Photoshop · Illustrator · InDesign</span>
         </div>
       </a>
-      <a class="project-card" href="progetto-we-great.html">
-        <div class="project-image img-2">02</div>
-        <div class="project-info">
-          <h2>We Great</h2>
-          <p>Branding / UX UI</p>
-          <span>Figma · Illustrator · Photoshop</span>
+      <a class="project-card" href="progetto-play2match.html">
+        <div class="project-image" style="background:#ff4500;overflow:hidden">
+          <img src="assets/play2match.png" alt="Play2Match" style="width:100%;height:100%;object-fit:cover" />
         </div>
-      </a>
-      <a class="project-card" href="progetto-indegno.html">
-        <div class="project-image img-3">03</div>
         <div class="project-info">
-          <h2>Indegno</h2>
-          <p>Graphic design / Concept</p>
-          <span>Illustrator · Photoshop · InDesign</span>
+          <h2>Play n'Match</h2>
+          <p>UX/UI Design</p>
+          <span>Figma · Illustrator</span>
         </div>
       </a>
       <a class="project-card" href="progetto-dog-balloon.html">
@@ -73,7 +69,7 @@
       </a>
       <a class="project-card" href="progetto-chivas.html">
         <div class="project-image" style="background:#8b0000;overflow:hidden">
-          <img src="assets/chivas nuova.jpg" alt="Chivas Regal" style="width:100%;height:100%;object-fit:cover" />
+          <img src="assets/chivas nuova.jpg" alt="Chivas" style="width:100%;height:100%;object-fit:cover" />
         </div>
         <div class="project-info">
           <h2>Chivas Regal 12</h2>
@@ -93,7 +89,7 @@
       </a>
       <a class="project-card" href="progetto-porsche.html">
         <div class="project-image" style="background:#f0f0f0;overflow:hidden">
-          <img src="assets/infografica porsche 911.jpg" alt="Porsche 911" style="width:100%;height:100%;object-fit:cover" />
+          <img src="assets/infografica porsche 911.jpg" alt="Porsche" style="width:100%;height:100%;object-fit:cover" />
         </div>
         <div class="project-info">
           <h2>Porsche 911</h2>
@@ -113,7 +109,7 @@
       </a>
       <a class="project-card" href="progetto-pop-smoke.html">
         <div class="project-image" style="background:#3333cc;overflow:hidden">
-          <img src="assets/infografica pop smoke.jpeg" alt="Pop Smoke" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'" />
+          <img src="assets/infografica pop smoke.jpg" alt="Pop Smoke" style="width:100%;height:100%;object-fit:cover" />
         </div>
         <div class="project-info">
           <h2>Pop Smoke</h2>
@@ -125,32 +121,29 @@
 
     <!-- LIST VIEW -->
     <section id="listView" class="projects-list view" style="padding-bottom:100px">
-
       <div class="list-category">
-        <h2>Editorial / UX UI</h2>
-        <a href="progetto-dottor-jekyll.html">Dottor Jekyll e il Signor Hyde<small>InDesign · Photoshop · Illustrator</small></a>
-        <a href="progetto-we-great.html">We Great<small>Figma · Illustrator · Photoshop</small></a>
+        <h2>Editorial / Visual Design</h2>
+        <a href="progetto-dottor-jekyll.html">Dottor Jekyll e il Signor Hyde<small>Photoshop · Illustrator · InDesign</small></a>
         <a href="progetto-john-lennon.html">John Lennon — Walls and Bridges<small>Illustrator · Photoshop</small></a>
       </div>
-
-      <div class="list-category" style="margin-top:2rem">
+      <div class="list-category">
+        <h2>UX/UI Design</h2>
+        <a href="progetto-play2match.html">Play n'Match<small>Figma · Illustrator</small></a>
+      </div>
+      <div class="list-category">
         <h2>Poster / Advertising</h2>
-        <a href="progetto-indegno.html">Indegno<small>Illustrator · Photoshop · InDesign</small></a>
         <a href="progetto-chivas.html">Chivas Regal 12<small>Photoshop · Illustrator</small></a>
         <a href="progetto-cinema.html">53a Mostra Internazionale del Nuovo Cinema<small>Illustrator · Photoshop</small></a>
       </div>
-
-      <div class="list-category" style="margin-top:2rem">
+      <div class="list-category">
         <h2>Infografica</h2>
         <a href="progetto-porsche.html">Porsche 911<small>Illustrator · Photoshop</small></a>
         <a href="progetto-pop-smoke.html">Pop Smoke<small>Illustrator · Photoshop</small></a>
       </div>
-
-      <div class="list-category" style="margin-top:2rem">
+      <div class="list-category">
         <h2>3D / Prompt</h2>
         <a href="progetto-dog-balloon.html">Dog Balloon<small>Blender · ChatGPT</small></a>
       </div>
-
     </section>
   </main>
 
@@ -172,7 +165,6 @@
       <span>© Ca.Farru</span>
     </div>
   </footer>
-
   <script src="script.js"></script>
 </body>
 </html>
