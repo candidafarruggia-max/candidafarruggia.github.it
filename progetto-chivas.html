@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chivas Regal — Ca.Farru</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .project-page { padding: 8rem 6vw 6rem }
+    .project-hero { display: grid; grid-template-columns: 1fr 1.6fr; gap: 6vw; align-items: start; border-bottom: 1px solid #222; padding-bottom: 4rem; margin-bottom: 4rem }
+    .project-meta-left { display: flex; flex-direction: column; gap: 2rem }
+    .meta-block p { color: var(--grey); font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; margin: 0 0 .4rem }
+    .meta-block h3 { font-family: Anton, Impact, sans-serif; font-size: clamp(1.2rem, 2vw, 2rem); text-transform: uppercase; margin: 0 }
+    .software-icons { display: flex; gap: 10px; flex-wrap: wrap }
+    .sw { width: 52px; height: 52px; border-radius: 50%; background: var(--white); color: var(--black); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: .8rem }
+    .project-title-right h1 { font-family: Anton, Impact, sans-serif; font-size: clamp(3rem, 8vw, 10rem); text-transform: uppercase; line-height: .85; margin: 0 0 1.5rem }
+    .project-title-right .brief-text { font-size: clamp(1rem, 1.5vw, 1.3rem); line-height: 1.6; color: var(--grey) }
+    .images-grid { display: grid; gap: 2rem }
+    .images-grid img { width: 100%; border-radius: 16px; display: block }
+    .img-full { grid-column: 1/-1 }
+    .two-col { grid-template-columns: 1fr 1fr }
+    @media(max-width:800px){ .project-hero { grid-template-columns: 1fr } .two-col { grid-template-columns: 1fr } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="mini-logo" href="index.html">CF</a>
+    <nav class="pill-nav">
+      <a class="nav-link active" href="galleria.html">Galleria</a>
+      <a class="nav-link" href="about.html">Chi sono</a>
+      <a class="nav-link" href="contatti.html">Contatti</a>
+    </nav>
+    <div class="lang-nav">
+      <button class="lang-btn active" type="button" data-lang="it">IT</button>
+      <button class="lang-btn" type="button" data-lang="en">EN</button>
+      <button class="lang-btn" type="button" data-lang="sp">SP</button>
+    </div>
+  </header>
+
+  <main class="project-page">
+    <div class="project-hero">
+      <div class="project-meta-left">
+        <div class="meta-block">
+          <p>Categoria</p>
+          <h3>Poster / Advertising</h3>
+        </div>
+        <div class="meta-block">
+          <p>Software</p>
+          <div class="software-icons">
+            <span class="sw">Ps</span>
+            <span class="sw">Ai</span>
+          </div>
+        </div>
+        <div class="meta-block">
+          <p>Committente</p>
+          <h3>Università — IAAD</h3>
+        </div>
+      </div>
+      <div class="project-title-right">
+        <h1>Chivas Regal 12</h1>
+        <p class="brief-text">Rivisitazione di una campagna pubblicitaria iconica degli anni '90. L'obiettivo era mantenere lo stesso insight originale — il lusso accessibile — adattando linguaggio visivo, formato e tono ai canali di comunicazione contemporanei. Il claim "Stringi la cinghia, tranne per Chivas" reinterpreta in chiave moderna lo spirito del brand.</p>
+      </div>
+    </div>
+
+    <div class="images-grid two-col">
+      <img src="assets/chivas vecchia.png" alt="Chivas Regal campagna originale anni 90" />
+      <img src="assets/chivas nuova.jpg" alt="Chivas Regal nuovo poster" />
+    </div>
+    <div style="margin-top:2rem">
+      <img src="assets/mock.jpg" alt="Chivas Regal mockup muro" style="width:100%;border-radius:16px" />
+    </div>
+  </main>
+
+  <footer class="footer section-black">
+    <a class="footer-cta" href="mailto:160499.candy.farruggia@gmail.com">
+      <span>Creiamo insieme</span><span aria-hidden="true">Creiamo insieme</span><span aria-hidden="true">Creiamo insieme</span>
+    </a>
+    <div class="footer-row">
+      <a href="mailto:160499.candy.farruggia@gmail.com">email</a>
+      <a href="#">instagram</a>
+      <a href="#">behance</a>
+      <span>© Ca.Farru</span>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
