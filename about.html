@@ -11,81 +11,71 @@
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      padding: 8rem 5vw;
+      padding: 8rem 6vw;
       gap: 4vw;
       background: var(--black);
     }
-    .about-hero-left, .about-hero-right {
+    .about-hero-left {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      justify-content: center;
     }
-    .about-hero-left .eyebrow {
-      color: var(--lime);
-      font-size: .8rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      margin: 0;
-    }
-    .about-hero-left h1 {
+    .about-hero-left .hero-name {
       font-family: Anton, Impact, sans-serif;
-      font-size: clamp(3rem, 6vw, 7rem);
+      font-size: clamp(4rem, 10vw, 13rem);
+      text-transform: uppercase;
+      color: var(--white);
       line-height: .85;
       margin: 0;
-      text-transform: uppercase;
     }
-    .about-hero-left .about-bio,
-    .about-hero-right .about-method {
-      font-size: clamp(.95rem, 1.3vw, 1.15rem);
-      line-height: 1.75;
-      color: var(--grey);
-      margin: 0;
-    }
-    .about-hero-right .method-label {
-      color: var(--lime);
-      font-size: .8rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      margin: 0;
-    }
-    /* cerchio foto centrale */
     .about-hero-center {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 1.5rem;
+      justify-content: center;
     }
     .about-photo-circle {
-      width: clamp(180px, 20vw, 320px);
+      width: clamp(200px, 22vw, 360px);
       aspect-ratio: 1;
       border-radius: 50%;
       overflow: hidden;
-      border: 3px solid #222;
+      border: 3px solid #333;
       flex-shrink: 0;
     }
     .about-photo-circle img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
     }
-    .about-name-center {
+    .about-hero-right {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    .about-hero-right .hero-role {
       font-family: Anton, Impact, sans-serif;
-      font-size: clamp(2rem, 4vw, 5rem);
+      font-size: clamp(2rem, 5vw, 7rem);
       text-transform: uppercase;
-      text-align: center;
+      color: var(--lime);
+      line-height: .9;
       margin: 0;
-      line-height: 1;
+      text-align: right;
+    }
+    /* banda lime */
+    .about-statement {
+      background: var(--lime);
+      padding: 5rem 6vw;
+    }
+    .about-statement p {
+      font-family: Anton, Impact, sans-serif;
+      font-size: clamp(2rem, 4.5vw, 6rem);
+      text-transform: uppercase;
+      color: var(--black);
+      line-height: 1.05;
+      margin: 0;
     }
     @media (max-width: 900px) {
-      .about-hero {
-        grid-template-columns: 1fr;
-        padding: 8rem 5vw 4rem;
-        gap: 3rem;
-      }
-      .about-hero-center { order: -1; }
+      .about-hero { grid-template-columns: 1fr; padding: 8rem 5vw 4rem; gap: 3rem; text-align: center; }
+      .about-hero-right { justify-content: center; }
+      .about-hero-right .hero-role { text-align: center; }
       .about-photo-circle { width: clamp(160px, 50vw, 260px); }
     }
     .education { background: var(--lime); color: var(--black); padding: 8rem 7vw }
@@ -136,7 +126,7 @@
 </head>
 <body>
   <header class="topbar">
-    <a href="index.html" style="font-family:Anton,Impact,sans-serif;color:var(--lime);font-size:1rem;letter-spacing:.05em;text-decoration:none;text-transform:uppercase;white-space:nowrap;">CA.FARRU</a>
+    <a class="mini-logo" href="index.html">CF</a>
     <nav class="pill-nav">
       <a class="nav-link" href="galleria.html" data-i18n="nav_gallery">Galleria</a>
       <a class="nav-link active" href="about.html" data-i18n="nav_about">Chi sono</a>
@@ -151,26 +141,21 @@
 
   <main>
     <section class="about-hero">
-      <!-- SINISTRA: chi sono -->
       <div class="about-hero-left">
-        <p class="eyebrow" data-i18n="about_label">Ciao, io sono</p>
-        <h1>Candy</h1>
-        <p class="about-bio" data-i18n="about_bio">Nata quasi insieme a Google, ma decisamente più simpatica. Vivo di amici, sport di squadra, musica a tutto volume e idee per nuovi tatuaggi. Mi rilasso guardando thriller, crime e azione, perché evidentemente l'ansia nella vita quotidiana non basta. Amo il blu, adoro i serpenti e ho un talento speciale nel dire "solo un episodio" e ritrovarmi a finire una serie alle tre di notte.</p>
+        <h1 class="hero-name">Candida<br>Farruggia</h1>
       </div>
-
-      <!-- CENTRO: foto nel cerchio -->
       <div class="about-hero-center">
         <div class="about-photo-circle">
           <img src="assets/io2.jpg" alt="Foto di Candy" />
         </div>
-        <p class="about-name-center">Ca.Farru</p>
       </div>
-
-      <!-- DESTRA: metodo di lavoro -->
       <div class="about-hero-right">
-        <p class="method-label" data-i18n="method_label">Metodo di lavoro</p>
-        <p class="about-method" data-i18n="about_method">Il mio metodo parte sempre dall'ascolto: raccolgo le richieste del cliente, analizzo il brief e faccio tutte le ricerche necessarie per trovare la strategia migliore. Da lì iniziano schizzi, appunti e idee sparse ovunque. Dopo una prima revisione con il cliente, passo ai prototipi, seguiti da un'altra revisione. Se tutto fila liscio, finalizzo il progetto. Se non fila liscio, si corregge, si migliora e si va avanti. Obiettivo finale? Consegnare un lavoro curato e puntuale, anche a costo di fare amicizia con il caffè e dimenticare cosa significhi dormire.</p>
+        <p class="hero-role" data-i18n="hero_role">Graphic<br>Designer<br>&amp; UX/UI<br>Designer</p>
       </div>
+    </section>
+
+    <section class="about-statement">
+      <p data-i18n="about_statement">Ciao, sono Candy Farruggia. Mi occupo di grafica e web design. Ho un anno in meno di Google, ma decisamente più personalità. Trasformo idee in progetti creativi e funzionali, con l'aiuto di qualche caffè e di una playlist sempre accesa.</p>
     </section>
 
     <section class="education">
@@ -263,20 +248,17 @@
   <script src="script.js"></script>
   <script>
     const aboutT = {
-      it: { nav_gallery:'Galleria', nav_about:'Chi sono', nav_contact:'Contatti', about_label:'Ciao, io sono',
-        about_bio:"Nata quasi insieme a Google, ma decisamente più simpatica. Vivo di amici, sport di squadra, musica a tutto volume e idee per nuovi tatuaggi. Mi rilasso guardando thriller, crime e azione, perché evidentemente l'ansia nella vita quotidiana non basta. Amo il blu, adoro i serpenti e ho un talento speciale nel dire \"solo un episodio\" e ritrovarmi a finire una serie alle tre di notte.",
-        method_label:'Metodo di lavoro',
-        about_method:"Il mio metodo parte sempre dall'ascolto: raccolgo le richieste del cliente, analizzo il brief e faccio tutte le ricerche necessarie per trovare la strategia migliore. Da lì iniziano schizzi, appunti e idee sparse ovunque. Dopo una prima revisione con il cliente, passo ai prototipi, seguiti da un'altra revisione. Se tutto fila liscio, finalizzo il progetto. Se non fila liscio, si corregge, si migliora e si va avanti. Obiettivo finale? Consegnare un lavoro curato e puntuale, anche a costo di fare amicizia con il caffè e dimenticare cosa significhi dormire.",
+      it: { nav_gallery:'Galleria', nav_about:'Chi sono', nav_contact:'Contatti',
+        hero_role:'Graphic<br>Designer<br>&amp; UX/UI<br>Designer',
+        about_statement:'Ciao, sono Candy Farruggia. Mi occupo di grafica e web design. Ho un anno in meno di Google, ma decisamente più personalità. Trasformo idee in progetti creativi e funzionali, con l\'aiuto di qualche caffè e di una playlist sempre accesa.',
         edu_title:'Formazione', edu1_title:'Liceo Artistico', edu2_title:'User Interface Design', edu3_title:'Masterclass Graphic & Web Design', edu4_title:'Digital Communication Design', skills_title:'Competenze & Hobby', skills_lang:'Lingue', skills_tools:'Tools', skills_hobbies:'Passioni', footer_cta:'Creiamo insieme' },
-      en: { nav_gallery:'Gallery', nav_about:'About me', nav_contact:'Contacts', about_label:'Hi, I am',
-        about_bio:"Born around the same time as Google, but way more fun. I live for friends, team sports, loud music and ideas for new tattoos. I unwind watching thrillers, crime and action — because apparently everyday anxiety just isn't enough. I love blue, I adore snakes, and I have a special talent for saying \"just one episode\" and ending up finishing an entire series at three in the morning.",
-        method_label:'My process',
-        about_method:"My process always starts with listening: I gather the client's needs, analyse the brief and do all the research needed to find the best strategy. From there, sketches, notes and ideas start piling up everywhere. After a first review with the client, I move on to prototypes, followed by another round of feedback. If everything runs smoothly, I finalise the project. If it doesn't, I correct, improve and keep going. The final goal? Delivering polished, on-time work — even if it means befriending coffee and forgetting what sleep feels like.",
+      en: { nav_gallery:'Gallery', nav_about:'About me', nav_contact:'Contacts',
+        hero_role:'Graphic<br>Designer<br>&amp; UX/UI<br>Designer',
+        about_statement:'Hi, I\'m Candy Farruggia. I work in graphic and web design. I\'m a year younger than Google, but way more personality. I turn ideas into creative and functional projects, fuelled by coffee and a playlist that never stops.',
         edu_title:'Education', edu1_title:'Art High School', edu2_title:'User Interface Design', edu3_title:'Masterclass Graphic & Web Design', edu4_title:'Digital Communication Design', skills_title:'Skills & Hobbies', skills_lang:'Languages', skills_tools:'Tools', skills_hobbies:'Passions', footer_cta:"Let's create together" },
-      sp: { nav_gallery:'Galería', nav_about:'Sobre mí', nav_contact:'Contactos', about_label:'Hola, yo soy',
-        about_bio:"Nacida casi al mismo tiempo que Google, pero bastante más simpática. Vivo de amigos, deportes de equipo, música a todo volumen e ideas para nuevos tatuajes. Me relajo viendo thrillers, crimen y acción, porque evidentemente la ansiedad del día a día no es suficiente. Amo el azul, adoro las serpientes y tengo un talento especial para decir \"solo un episodio\" y acabar terminando una serie a las tres de la madrugada.",
-        method_label:'Mi método de trabajo',
-        about_method:"Mi método siempre empieza por escuchar: recojo las necesidades del cliente, analizo el brief y hago toda la investigación necesaria para encontrar la mejor estrategia. A partir de ahí empiezan los bocetos, las notas y las ideas esparcidas por todas partes. Tras una primera revisión con el cliente, paso a los prototipos, seguidos de otra ronda de feedback. Si todo va bien, finalizo el proyecto. Si no va bien, se corrige, se mejora y se sigue adelante. ¿Objetivo final? Entregar un trabajo cuidado y puntual, aunque cueste hacerse amiga del café y olvidar lo que significa dormir.",
+      sp: { nav_gallery:'Galería', nav_about:'Sobre mí', nav_contact:'Contactos',
+        hero_role:'Graphic<br>Designer<br>&amp; UX/UI<br>Designer',
+        about_statement:'Hola, soy Candy Farruggia. Me dedico al diseño gráfico y web. Tengo un año menos que Google, pero mucha más personalidad. Transformo ideas en proyectos creativos y funcionales, con ayuda de algún café y una playlist que nunca para.',
         edu_title:'Formación', edu1_title:'Bachillerato Artístico', edu2_title:'Diseño de Interfaz', edu3_title:'Masterclass Graphic & Web Design', edu4_title:'Diseño de Comunicación Digital', skills_title:'Competencias & Hobbies', skills_lang:'Idiomas', skills_tools:'Herramientas', skills_hobbies:'Pasiones', footer_cta:'Creamos juntos' }
     };
 
