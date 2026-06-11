@@ -15,99 +15,115 @@
       text-transform: uppercase;
       white-space: nowrap;
     }
-    .hero-with-avatar {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+
+    /* ── HERO ── */
+    .hero-new {
       min-height: 100vh;
-      overflow: hidden;
       background: var(--black);
-    }
-    .hero-name-row {
       display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      gap: 0;
-      width: 100%;
-      padding: 0 4vw;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 0 0 0;
+      overflow: hidden;
+      position: relative;
     }
-    .hero-name-part {
-      font-family: Anton, Impact, sans-serif;
-      font-size: clamp(5rem, 13vw, 15rem);
-      text-transform: uppercase;
-      line-height: 1;
-      color: var(--white);
-      white-space: nowrap;
+    .hero-avatar {
+      width: clamp(260px, 38vw, 560px);
+      position: relative;
+      z-index: 2;
+      display: block;
+      margin: 0 auto;
+      /* avatar parte dall'alto, leggermente sovrapposto al nome */
+      margin-bottom: -4vw;
     }
-    .hero-avatar-wrap {
-      width: clamp(140px, 16vw, 260px);
-      flex-shrink: 0;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      overflow: visible;
-      margin: 0 1vw;
-    }
-    .hero-avatar-wrap img {
+    .hero-avatar img {
       width: 100%;
       height: auto;
       object-fit: contain;
       display: block;
     }
-    /* Sezione lime */
-    .intro-new {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      gap: 3vw;
-      padding: 6rem 7vw;
-      background: var(--lime);
-      min-height: 80vh;
-    }
-    .intro-left .intro-greeting {
+    .hero-name {
       font-family: Anton, Impact, sans-serif;
-      font-size: clamp(1rem, 2vw, 2rem);
-      text-transform: uppercase;
-      color: var(--black);
-      margin: 0 0 .4rem;
-      letter-spacing: .04em;
-    }
-    .intro-left h2 {
-      font-family: Anton, Impact, sans-serif;
-      font-size: clamp(3.5rem, 9vw, 11rem);
+      font-size: clamp(5rem, 22vw, 28rem);
       text-transform: uppercase;
       line-height: .85;
-      margin: 0;
-      color: var(--black);
-    }
-    .intro-avatar-center {
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      width: clamp(160px, 18vw, 300px);
-    }
-    .intro-avatar-center img {
+      color: var(--white);
+      white-space: nowrap;
+      text-align: center;
       width: 100%;
+      position: relative;
+      z-index: 1;
+      /* scala per riempire la larghezza */
+      letter-spacing: -.02em;
+    }
+
+    /* ── SEZIONE LIME ── */
+    .intro-new {
+      background: var(--lime);
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: end;
+      overflow: hidden;
+      position: relative;
+    }
+    .intro-text-col {
+      padding: 6rem 0 4rem 5vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .intro-greeting {
+      font-family: Anton, Impact, sans-serif;
+      font-size: clamp(3.5rem, 9vw, 12rem);
+      text-transform: uppercase;
+      color: var(--black);
+      line-height: .85;
+      margin: 0;
+    }
+    .intro-name {
+      font-family: Anton, Impact, sans-serif;
+      font-size: clamp(5rem, 14vw, 18rem);
+      text-transform: uppercase;
+      color: var(--black);
+      line-height: .82;
+      margin: 0;
+    }
+    .intro-avatar-col {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: flex-end;
+      position: relative;
+    }
+    .intro-avatar-col img {
+      width: clamp(260px, 42vw, 640px);
       height: auto;
       object-fit: contain;
+      display: block;
     }
-    .intro-right {
-      text-align: right;
-    }
-    .intro-right .intro-role {
+    .intro-role {
+      position: absolute;
+      bottom: 3rem;
+      left: -2vw;
       font-family: Anton, Impact, sans-serif;
-      font-size: clamp(2rem, 5vw, 6rem);
+      font-size: clamp(2rem, 5vw, 7rem);
       text-transform: uppercase;
-      line-height: .88;
       color: var(--black);
+      line-height: .85;
       margin: 0;
+      z-index: 2;
     }
-    @media(max-width:700px){
-      .hero-name-part { font-size: clamp(2.5rem, 11vw, 5rem); }
-      .intro-new { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
-      .intro-right { text-align: center; }
-      .intro-avatar-center { margin: 0 auto; }
+
+    @media(max-width:768px){
+      .hero-name { font-size: clamp(4rem, 18vw, 10rem); }
+      .hero-avatar { width: clamp(200px, 60vw, 340px); margin-bottom: -6vw; }
+      .intro-new { grid-template-columns: 1fr; min-height: auto; }
+      .intro-text-col { padding: 4rem 5vw 2rem; }
+      .intro-avatar-col { align-items: center; }
+      .intro-avatar-col img { width: clamp(200px, 70vw, 380px); }
+      .intro-role { position: static; margin-top: 1rem; padding: 0 5vw 3rem; }
     }
   </style>
 </head>
@@ -127,28 +143,24 @@
   </header>
 
   <main>
-    <!-- HERO: CA. [avatar] FARRU -->
-    <section id="hero" class="hero-with-avatar">
-      <div class="hero-name-row">
-        <span class="hero-name-part">CA.</span>
-        <div class="hero-avatar-wrap">
-          <img src="assets/io.png" alt="Avatar Candy" />
-        </div>
-        <span class="hero-name-part">FARRU</span>
-      </div>
-    </section>
-
-    <!-- SEZIONE LIME: CIAO IO SONO CANDY + avatar + ruolo -->
-    <section class="intro-new">
-      <div class="intro-left">
-        <p class="intro-greeting" data-i18n="hello_small">Ciao, io sono</p>
-        <h2>Candy</h2>
-      </div>
-      <div class="intro-avatar-center">
+    <!-- HERO: avatar grande sopra, nome gigante sotto -->
+    <section id="hero" class="hero-new">
+      <div class="hero-avatar">
         <img src="assets/io.png" alt="Avatar Candy" />
       </div>
-      <div class="intro-right">
-        <p class="intro-role" data-i18n="role">Graphic Design<br>& UX/UI Design</p>
+      <h1 class="hero-name">CA.FARRU</h1>
+    </section>
+
+    <!-- SEZIONE LIME: testo enorme a sinistra, avatar grande a destra -->
+    <section class="intro-new">
+      <div class="intro-text-col">
+        <p class="intro-greeting" data-i18n="hello_line1">Ciao,</p>
+        <p class="intro-greeting" data-i18n="hello_line2">io sono</p>
+        <p class="intro-name">Candy</p>
+      </div>
+      <div class="intro-avatar-col">
+        <img src="assets/io.png" alt="Avatar Candy" />
+        <p class="intro-role" data-i18n="role">Graphic<br>Design<br>& UX/UI</p>
       </div>
     </section>
 
@@ -201,19 +213,22 @@
     const indexTranslations = {
       it: {
         nav_gallery: 'Galleria', nav_about: 'Chi sono', nav_contact: 'Contatti',
-        hello_small: 'Ciao, io sono', role: 'Graphic Design<br>& UX/UI Design',
+        hello_line1: 'Ciao,', hello_line2: 'io sono',
+        role: 'Graphic<br>Design<br>& UX/UI',
         works_label: 'Selected works', projects_title: 'Progetti',
         footer_cta: 'Creiamo insieme', view_all: 'Vedi tutti i progetti →'
       },
       en: {
         nav_gallery: 'Gallery', nav_about: 'About me', nav_contact: 'Contacts',
-        hello_small: 'Hi, I am', role: 'Graphic Design<br>& UX/UI Design',
+        hello_line1: 'Hello,', hello_line2: 'I am',
+        role: 'Graphic<br>Design<br>& UX/UI',
         works_label: 'Selected works', projects_title: 'Projects',
         footer_cta: "Let's create together", view_all: 'See all projects →'
       },
       sp: {
         nav_gallery: 'Galería', nav_about: 'Sobre mí', nav_contact: 'Contactos',
-        hello_small: 'Hola, soy', role: 'Diseño gráfico<br>y UX/UI Design',
+        hello_line1: 'Hola,', hello_line2: 'yo soy',
+        role: 'Diseño<br>Gráfico<br>& UX/UI',
         works_label: 'Trabajos seleccionados', projects_title: 'Proyectos',
         footer_cta: 'Creamos juntos', view_all: 'Ver todos los proyectos →'
       }
